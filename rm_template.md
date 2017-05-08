@@ -31,10 +31,22 @@ myproject uses [CMake](https://cmake.org/) for build configurations.
 
 myproject requires the following libraries to be built correctly.
 
-- [Example](http://www.example.org/)
-  for something
-- [AnotherExample](http://www.example.org/)
-  for something else
+- [OpenGL](https://www.opengl.org/) or [Vulkan](https://www.khronos.org/vulkan/)
+  for rendering
+- [SDL2](https://www.libsdl.org/) or [GLFW](http://www.glfw.org/)
+  for windowing and event handling
+- [Lua](http://www.lua.org/)
+  for scripting
+- [libsoundio](http://libsound.io)
+  for sound
+- [Boost](http://www.boost.org/)
+  for all-around usefulness
+- [Bullet Physics](http://bulletphysics.org/)
+  for 3D collision resolution, 3D physics
+- [JsonCpp](https://github.com/open-source-parsers/jsoncpp/)
+  for serialization, config files
+- [stb](https://github.com/nothings/stb)
+  for image loading
 
 *Each library listed above is the copyright of its respective author(s). Please
 see individual library homepages for more accurate licensing information.*

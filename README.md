@@ -1,6 +1,6 @@
 # C++ Project Template
 
-Insert short tagline or description here.
+This is my personal template for new C++ projects.
 
 ## Description
 
@@ -14,31 +14,6 @@ although I find that possibility unlikely.
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 A copy of this license is available in the `LICENSE` file located in the
 root of this repository.
-
-## Building & Running
-
-myproject uses [CMake](https://cmake.org/) for build configurations.
-
-### Dependencies
-
-myproject requires the following libraries to be built correctly.
-
-- [Example](http://www.example.org/)
-  for something
-- [AnotherExample](http://www.example.org/)
-  for something else
-
-*Each library listed above is the copyright of its respective author(s). Please
-see individual library homepages for more accurate licensing information.*
-
-### Runtime Environment
-
-By default, myproject expects its runtime environment to be set up such that:
-- `<home>/user/` contains all player-specific data
-- `<home>/user/addons/` contains all addons that can be loaded
-- `<home>/resources/` contains all essential engine resources
-
-`<home>` is by default `../`.
 
 ## Miscellaneous
 
