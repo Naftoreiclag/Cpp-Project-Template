@@ -14,13 +14,16 @@
 
 import xml.etree.ElementTree as ET
 import os
+from Common import get_project_name
+
+proj_name = get_project_name()
 
 from Common import indexFiles
 sourceList, _, __ = \
-    indexFiles('../src/myproject/', ['.cpp', '.hpp'], ['deprecated/'])
+    indexFiles('../src/' + proj_name + '/', ['.cpp', '.hpp'], ['deprecated/'])
 
 projectFilename = '../ide/Codelite/Codelite.project'
-sourceRootRelativePath = '../../src/myproject/'
+sourceRootRelativePath = '../../src/' + proj_name + '/'
 
 projectEtree = ET.parse(projectFilename)
 projectRoot = projectEtree.getroot()
@@ -28,14 +31,14 @@ virtualDirs = projectRoot.findall('VirtualDirectory')
 
 myprojectVirtualDir = None
 for virtualDir in virtualDirs:
-    if virtualDir.get('Name') == 'myproject':
+    if virtualDir.get('Name') == proj_name:
         myprojectVirtualDir = virtualDir
         break
 if not myprojectVirtualDir:
     myprojectVirtualDir = ET.SubElement(projectRoot, 'VirtualDirectory')
 
 myprojectVirtualDir.clear()
-myprojectVirtualDir.set('Name', 'myproject')
+myprojectVirtualDir.set('Name', proj_name)
 
 for sourcePath in sourceList:
     

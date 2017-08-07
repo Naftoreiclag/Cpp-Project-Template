@@ -14,16 +14,19 @@
 
 import xml.etree.ElementTree as ET
 import os
+from Common import get_project_name
+
+proj_name = get_project_name()
 
 from Common import indexFiles
 sourceList, _, __ = \
-    indexFiles('../src/myproject/', ['.cpp'], ['deprecated/'])
+    indexFiles('../src/' + proj_name + '/', ['.cpp'], ['deprecated/'])
 includeList, _, __ = \
-    indexFiles('../src/myproject/', ['.hpp'], ['deprecated/'])
+    indexFiles('../src/' + proj_name + '/', ['.hpp'], ['deprecated/'])
 
 projFilename = '../ide/VS/VS.vcxproj'
 filtFilename = '../ide/VS/VS.vcxproj.filters'
-sourceRootRelativePath = '../../src/myproject/'
+sourceRootRelativePath = '../../src/' + proj_name + '/'
 
 def convertToProjectPath(path):
     return os.path.join(sourceRootRelativePath, path).replace('/', '\\')
@@ -77,7 +80,8 @@ filtFilterList = set(x.get('Include') for x in filtFilterElems)
 
 missingFilters = set()
 for sourcePath, sourceName in sourceList:
-    filterName = 'myproject\\' + os.path.split(sourceName)[0].replace('/', '\\')
+    filterName = proj_name + '\\' \
+            + os.path.split(sourceName)[0].replace('/', '\\')
     
     if sourcePath not in projCompileList:
         # Add a new entry into the project file
@@ -99,7 +103,8 @@ for sourcePath, sourceName in sourceList:
         
     missingFilters.add(filterName)
 for includePath, includeName in includeList:
-    filterName = 'myproject\\' + os.path.split(includeName)[0].replace('/', '\\')
+    filterName = proj_name + '\\' \
+            + os.path.split(includeName)[0].replace('/', '\\')
     if includePath not in projIncludeList:
         # Add a new entry into the project file
         newElem = ET.SubElement(projIncludeItemGroupElem, qualify('ClInclude'))

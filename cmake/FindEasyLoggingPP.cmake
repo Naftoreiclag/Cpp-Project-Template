@@ -12,18 +12,22 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-# This file contains a listing of all of the source files used in the engine
-# build target. Populates a list called PGLOCAL_SOURCES_LIST
+# Populates:
+# - EASYLOGPP_FOUND
+# - EASYLOGPP_INCLUDE_DIR
+# - EASYLOGPP_SOURCE_FILES
 
-# Preferred method of adding source items is through the Python script in:
-# `util/GenerateEngineSrcList.py`
+set(EASYLOGPP_FOUND FALSE)
+find_path(EASYLOGPP_INCLUDE_DIR NAMES "easylogging++.h")
+set(EASYLOGPP_SOURCE_FILES "EASYLOGPP_SOURCE_FILES-NOTFOUND"
+    CACHE FILEPATH "Typically easylogging++.cc")
 
-# This function appends the provided string list to PGLOCAL_SOURCES_LIST
-set(PGLOCAL_SOURCES_LIST "")
-foreach(fname 
+if(EASYLOGPP_INCLUDE_DIR)
+    set(EASYLOGPP_FOUND TRUE)
+    set(EASYLOGPP_SOURCE_FILES "${EASYLOGPP_INCLUDE_DIR}/easylogging++.cc")
+endif()
 
-"main.cpp"
-
+mark_as_advanced(
+    EASYLOGPP_INCLUDE_DIR
+    EASYLOGPP_SOURCE_FILES
 )
-list(APPEND PGLOCAL_SOURCES_LIST "${PGLOCAL_SOURCE_DIR}/pegr/${fname}")
-endforeach()

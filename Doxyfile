@@ -1,6 +1,7 @@
 DOXYFILE_ENCODING         = UTF-8
 ENABLE_PREPROCESSING      = NO
 EXTRACT_ALL               = YES
+RECURSIVE                 = YES
 GENERATE_TREEVIEW         = YES
 INPUT                     = src/
 INPUT_ENCODING            = UTF-8

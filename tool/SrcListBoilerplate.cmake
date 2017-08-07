@@ -25,5 +25,6 @@ foreach(fname
 ### SOURCE LIST ###
 
 )
-list(APPEND PGLOCAL_SOURCES_LIST "${PGLOCAL_SOURCE_DIR}/pegr/${fname}")
+list(APPEND PGLOCAL_SOURCES_LIST 
+        "${PGLOCAL_SOURCE_DIR}/${PGLOCAL_PROJ_NAME}/${fname}")
 endforeach()
