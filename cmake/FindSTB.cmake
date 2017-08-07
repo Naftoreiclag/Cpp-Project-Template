@@ -14,15 +14,15 @@
 
 # Populates:
 # - STB_FOUND
-# - STB_INCLUDE_DIR
+# - STB_INCLUDE_DIRS
 
 set(STB_FOUND FALSE)
-find_path(STB_INCLUDE_DIR NAMES "stb/stb.h")
+find_path(STB_INCLUDE_DIRS NAMES "stb/stb.h")
 
-if(STB_INCLUDE_DIR)
+if(STB_INCLUDE_DIRS)
     set(STB_FOUND TRUE)
 endif()
 
 mark_as_advanced(
-    STB_INCLUDE_DIR
+    STB_INCLUDE_DIRS
 )
