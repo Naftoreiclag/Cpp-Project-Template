@@ -32,10 +32,10 @@ holder are distributed under the
 A copy of this license is available in the `LICENSE` file located in the
 root of this repository.
 
-Included in this repository is the source code for other open-source projects
-that are embedded in this project. This source code for these third-party
-projects is available in the `src/.../thirdparty` subdirectory. 
-These projects may be subject to different licensing terms. Please See 
+Included in this repository may be source code for other open-source projects
+that are embedded in this project. This source code for such third-party
+projects is available in the `src/thirdparty` subdirectory. 
+Such projects may be subject to different licensing terms. Please see 
 individual files for details.
 
 Files found outside the `src/` repository, including but not limited to those
